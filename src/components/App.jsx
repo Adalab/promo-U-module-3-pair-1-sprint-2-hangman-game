@@ -19,17 +19,13 @@ function App() {
   /******5. Pintando el muñeco******/
 
   const calculateErrors = () => {
-    // Calcular el número de errores
     const errorCount = userLetters.filter(
       (letter) => !word.includes(letter)
     ).length;
     return errorCount;
   };
 
-  const renderDummyClass = () => {
-    const errorCount = calculateErrors();
-    return `dummy error-${errorCount}`;
-  };
+ 
 
   const handleChange = (event) => {
     const inputLetter = event.target.value;
@@ -107,7 +103,7 @@ function App() {
               />
             </form>
           </section>
-          <Dummy numberOfErrors={errorCount}/>
+          <Dummy numberOfErrors={calculateErrors()} />
         </main>
       </div>
     </>
@@ -115,3 +111,4 @@ function App() {
 }
 
 export default App;
+

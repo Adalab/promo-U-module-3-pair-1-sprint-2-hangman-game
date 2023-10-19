@@ -1,8 +1,163 @@
-@import '../styles/layout/app.scss';
-@import '../styles/layout/dummy.scss';
-@import '../styles/layout/footer.scss';
-@import '../styles/layout/form.scss';
-@import '../styles/layout/header.scss';
-@import '../styles/layout/instructions.scss';
-@import '../styles/layout/letters.scss';
-@import '../styles/layout/loading.scss';
+
+// COMMON STYLES
+
+.title {
+  display: block;
+  font-size: 1.25rem;
+  line-height: 1;
+  text-align: center;
+}
+
+// PAGE
+
+.page {
+  padding: 2rem;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('../images/blackboard.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+// MAIN
+
+.main {
+  display: flex;
+  justify-content: center;
+}
+.solution,
+.error {
+  margin-bottom: 3.75rem;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  min-height: 3.5625rem;
+
+  .letter {
+    margin: 0 0.25rem;
+    min-width: 1.5rem;
+    font-size: 2rem;
+    border-bottom: 3px solid white;
+    text-align: center;
+  }
+}
+.loading {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: beat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  
+    &.hidden {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes beat {
+    0% {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    20% {
+      width: 2rem;
+      height: 2rem;
+    }
+    40% {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    60% {
+      width: 2rem;
+      height: 2rem;
+    }
+    80% {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    100% {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+  
+  .instructions {
+    max-width: 30rem;
+    line-height: 2.25;
+  
+    p {
+      padding-bottom: 2rem;
+    }
+  }
+  .form {
+    margin-bottom: 1rem;
+    text-align: center;
+  
+    &__input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 3px solid white;
+      text-align: center;
+      font-size: 4rem;
+      outline: none;
+      animation-name: borderBottomInput;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+  
+      &[maxLength='1'] {
+        width: 5rem;
+      }
+  
+      &[maxLength='15'] {
+        width: 25rem;
+      }
+  
+      &::selection {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
+    }
+  }
+  
+  @keyframes borderBottomInput {
+    from {
+      border-bottom-color: white;
+    }
+    50% {
+      border-bottom-color: transparent;
+    }
+    to {
+      border-bottom-color: white;
+    }
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+  
+    * {
+      font-size: 0.75rem;
+    }
+  
+    &__menu-item {
+      display: inline-block;
+      list-style: none;
+    }
+  
+    &__menu-link {
+      padding-right: 2rem;
+  
+      &.active {
+        text-decoration: none;
+      }
+    }
+  }
